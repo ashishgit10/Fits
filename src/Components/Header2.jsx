@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import logo from '../assets/logo.png'
+import logo2 from '../assets/logo2.png'
 
 const user = {
     name: 'Tom Cook',
@@ -32,17 +32,21 @@ function classNames(...classes) {
 }
 
 
-const Header = () => {
+const Header2 = () => {
     return (
         <>
             <header className=" text-white py-4 shadow-md">
                 <div className="container mx-auto flex justify-between items-center px-4">
                     <div className="flex items-center">
                         <img
-                            srcSet={logo}// Replace with the actual logo
+                            srcSet={logo2}// Replace with the actual logo
                             alt="MCD Logo"
-                            className="h-12"
+                            className="mr-3 w-16"
                         />
+                        <div>
+                            <h2 className='text-black m-0'>Department of Delhi Fire Services</h2>
+                            <span className='text-black'>Government of National Capital Territory of Delhi</span>
+                        </div>
                     </div>
                     <div className="flex items-center space-x-4">
                         <button className="bg-white text-blue-700 px-3 py-1 text-sm md:text-md rounded">Screen Reader Access</button>
@@ -185,4 +189,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Header2;
