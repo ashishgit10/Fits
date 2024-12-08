@@ -3,6 +3,8 @@ import React from 'react';
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import logo from '../assets/logo.png'
+ import flag from '../assets/flag.jpg'
+import emblem from '../assets/emblem.jpg'
 
 const user = {
     name: 'Tom Cook',
@@ -11,7 +13,7 @@ const user = {
         'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-    { name: 'Home Page', href: '#', current: true },
+    { name: 'Home Page', href: '/', current: true },
     { name: 'About Us', href: '#', current: false },
     { name: 'Departments', href: '#', current: false },
     { name: 'Zone', href: '#', current: false },
@@ -45,6 +47,16 @@ const Header = () => {
                         />
                     </div>
                     <div className="flex items-center space-x-4">
+                    <img
+                            srcSet={flag}// Replace with the actual logo
+                            alt="MCD Logo"
+                            className="mr-3 w-16"
+                        />
+                        <img
+                            srcSet={emblem}// Replace with the actual logo
+                            alt="MCD Logo"
+                            className="mr-3 w-16"
+                        />
                         <button className="bg-white text-blue-700 px-3 py-1 text-sm md:text-md rounded">Screen Reader Access</button>
                         <select className="bg-blue-600 text-white px-3 py-1 rounded">
                             <option>English</option>

@@ -31,10 +31,13 @@ const steps = [
 
 const StepsProcess = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-5 gap-6 text-center">
+    <div className="">
+
+    <div className=" flex flex-wrap gap-4 justify-center mt-5 text-center">
       {steps.map((step) => (
         <StepCard key={step.id} step={step} />
       ))}
+    </div>
     </div>
   );
 };

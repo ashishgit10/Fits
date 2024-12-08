@@ -1,13 +1,13 @@
 import Carousel from 'react-bootstrap/Carousel';
-
-
+import c1 from '../assets/c1.jpg'
+import c2 from '../assets/c2.jpg'
 function Corousel() {
   return (
     <Carousel>
       <Carousel.Item>
-      <img
-          className="d-block w-100"
-          src="https://via.placeholder.com/800x400"
+        <img
+          className="d-block w-2/3 m-auto"
+          srcSet={c1}
           alt="First slide"
         />
         <Carousel.Caption>
@@ -16,9 +16,9 @@ function Corousel() {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-      <img
-          className="d-block w-100"
-          src="https://via.placeholder.com/800x400"
+        <img
+          className="d-block w-2/3 m-auto"
+          srcSet={c2}
           alt="First slide"
         />
         <Carousel.Caption>
@@ -27,9 +27,9 @@ function Corousel() {
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-      <img
-          className="d-block w-100"
-          src="https://via.placeholder.com/800x400"
+        <img
+          className="d-block w-2/3 m-auto"
+          srcSet={c1}
           alt="First slide"
         />
         <Carousel.Caption>

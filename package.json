@@ -12,7 +12,10 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
+    "@preline/file-upload": "^2.6.0",
     "bootstrap": "^5.3.3",
+    "dropzone": "^6.0.0-beta.2",
+    "lodash": "^4.17.21",
     "preline": "^2.6.0",
     "react": "^18.3.1",
     "react-bootstrap": "^2.10.6",
