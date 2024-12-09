@@ -40,7 +40,7 @@ const StyledWrapper = styled.div`
     transition: all 0.4s;
     border-radius: 10px;
     font-size: 30px;
-    font-weight: 900;
+    font-weight: 500;
   }
 
   .card:hover {

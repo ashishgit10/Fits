@@ -1,41 +1,42 @@
 import Carousel from 'react-bootstrap/Carousel';
 import c1 from '../assets/c1.jpg'
 import c2 from '../assets/c2.jpg'
+import c3 from '../assets/c3.jpg'
 function Corousel() {
   return (
     <Carousel>
       <Carousel.Item>
         <img
-          className="d-block w-2/3 m-auto"
+          className="d-block w-full h-[600px]"
           srcSet={c1}
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Brave firefighters extinguishing blazing fires</h3>
+          <p>Delhi Firefighters combating a massive blaze</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-2/3 m-auto"
+          className="d-block w-full h-[600px]"
           srcSet={c2}
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Advanced fire safety tools and vehicles</h3>
+          <p>Modern equipment ensuring rapid fire response</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
         <img
-          className="d-block w-2/3 m-auto"
-          srcSet={c1}
+          className="d-block w-full h-[600px]"
+          srcSet={c3}
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          <h3>Fire safety education for public awareness</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            Training citizens in fire prevention measures
           </p>
         </Carousel.Caption>
       </Carousel.Item>

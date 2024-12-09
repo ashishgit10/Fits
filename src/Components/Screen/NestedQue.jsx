@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-
-// Data structure for dynamic fields and their nested topics
 const data = {
 
   "Residential Buildings / Residential Complex (Logging, Rooming, Dormatories, Apartments, Hotels)": {
@@ -259,62 +257,57 @@ const data = {
   },
 
 };
-
-const TIP_STATEMENT = `
-Tip: In addition to the above systems and equipment, the following systems are also installed as needed. Necessary:-
-1. Pump haus when the number of hydrants in all types of buildings exceeds 100 and 100 It is necessary to have two pieces of electrical, two pieces of diesel and two pieces of jockey pump and undergrowth The capacity of water will be double.
-2. In all types of buildings whose height is more than 15 meters, two exit gates in those buildings Which needs to be 1 meter in width.
-3. In multi-storey buildings that have a height of 24 meters, a refuges area is required. And after this it is necessary to have a refuges area every 15 meters in height.
-4. The width of the road in multi-storey buildings is required to be 1/3 of the height of the building.
-5. Ventilation is more than 200 square meters, then 2.5 percent of the total area It is necessary to provide for.
-6. It is necessary to keep a fire check door of 4 hours rating between the basement to the main building entrance.
-7. Width of stairs 1 m in residential complex, 1.5 m in hotel, assembly site 2 m, It is necessary to keep 2 meters in 1.5 meters and hospitals in educational institutions.
-8. Provision of battery powered light if not electrified in emergency exit Necessary.
-9. L. in buildingsP.Yes. Any other flammable material in the shaft with gas lines and Do not install electrical wires.
-10. If there are 45 or more students in any class in educational institutions, two It is necessary to keep the provision of doors.
-11. It is necessary to have provision of hand rail in the stairs outside the building, whose height is 1 meter Do not fall short of.
-12. In any building or Godaun where the manufacture of explosives and hazardous materials takes place It is necessary to keep the distance of the exit gate at 22.5 meters.
-13. Every building where air conditioning duct is available, it is very important to have fire dampers.
-14. Gas suppression system installed for firefighting of the tanspharmers in the premises of the building Should be
-15. Madeuler (gas / powder) installed 1 feet above the panels above the electrified panels Go
-16. Coating of fire retardant paint on both sides of 1+ 1 meter near high tension cable joint Be done.
-17. All the above systems, and active state installed in your premises at the time of inspection Must be in`;
+const TIP_STATEMENT = [
+  "1. Pump house when the number of hydrants in all types of buildings exceeds 100. It is necessary to have two pieces of electrical, two pieces of diesel and two pieces of jockey pumps. The capacity of water will be double.",
+  "2. In all types of buildings whose height is more than 15 meters, two exit gates in those buildings are necessary, each 1 meter in width.",
+  "3. In multi-storey buildings that have a height of 24 meters, a refuge area is required. And after this, it is necessary to have a refuge area every 15 meters in height.",
+  "4. The width of the road in multi-storey buildings is required to be 1/3 of the height of the building.",
+  "5. If the basement area is more than 200 square meters, then 2.5 percent of the total area is necessary to provide for ventilation.",
+  "6. It is necessary to keep a fire check door of 4 hours rating between the basement to the main building entrance.",
+  "7. Width of stairs 1 m in residential complex, 1.5 m in hotel, assembly site 2 m, It is necessary to keep 2 meters in 1.5 meters and hospitals in educational institutions.",
+  "8. Provision of battery powered light if not electrified in emergency exit Necessary.",
+  "9. L. in buildingsP.Yes. Any other flammable material in the shaft with gas lines and Do not install electrical wires.",
+  "10. If there are 45 or more students in any class in educational institutions, two It is necessary to keep the provision of doors.",
+  "11. It is necessary to have provision of hand rail in the stairs outside the building, whose height is 1 meter Do not fall short of.",
+  "12. In any building or Godaun where the manufacture of explosives and hazardous materials takes place It is necessary to keep the distance of the exit gate at 22.5 meters.",
+  "13. Every building where air conditioning duct is available, it is very important to have fire dampers.",
+  "14. Gas suppression system installed for firefighting of the tanspharmers in the premises of the building Should be",
+  "15. Madeuler (gas / powder) installed 1 feet above the panels above the electrified panels Go",
+  "16. Coating of fire retardant paint on both sides of 1+ 1 meter near high tension cable joint Be done.",
+  "17. All the above systems, and active state installed in your premises at the time of inspection Must be in.",
+];
 
 const NestedQue = () => {
-  const [currentList, setCurrentList] = useState(Object.keys(data)); // Start with top-level fields
-  const [path, setPath] = useState([]); // Track navigation path
-  const [showTip, setShowTip] = useState(false); // To track whether to show the tip statement
+  const [path, setPath] = useState([]); // Tracks the navigation path
+  const [currentData, setCurrentData] = useState(data); // Tracks the current level of data
+  const [showTip, setShowTip] = useState(false); // Controls tip visibility
 
   const handleItemClick = (item) => {
-    let currentData = data;
-    for (const p of path) {
-      currentData = currentData[p];
-    }
     const nextData = currentData[item];
 
     if (typeof nextData === "object" && !Array.isArray(nextData)) {
-      setPath([...path, item]); // Add item to navigation path
-      setCurrentList(Object.keys(nextData)); // Update current list
-      setShowTip(false); // Reset the tip
+      setPath([...path, item]);
+      setCurrentData(nextData);
+      setShowTip(false); // Reset tip visibility
     } else if (Array.isArray(nextData)) {
       setPath([...path, item]);
-      setCurrentList(nextData); // Show leaf nodes
-      setShowTip(true); // Show the tip when reaching the final list
+      setCurrentData(nextData); // Set leaf node data
+      setShowTip(true); // Show tip for leaf nodes
     }
   };
 
   const handleBack = () => {
     if (path.length > 0) {
       const newPath = path.slice(0, -1); // Remove the last path item
-      setPath(newPath);
+      let newData = data;
 
-      // Update the current list based on the new path
-      let currentData = data;
       for (const p of newPath) {
-        currentData = currentData[p];
+        newData = newData[p];
       }
-      setCurrentList(Array.isArray(currentData) ? currentData : Object.keys(currentData));
-      setShowTip(false); // Reset the tip
+
+      setPath(newPath);
+      setCurrentData(newData);
+      setShowTip(false); // Reset tip visibility
     }
   };
 
@@ -337,35 +330,49 @@ const NestedQue = () => {
 
       {/* Render current list */}
       <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-        {currentList.map((item, index) => (
-          <div
-            key={index}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              padding: "10px",
-              backgroundColor: "#f0f0f0",
-              border: "1px solid #ddd",
-              borderRadius: "5px",
-            }}
-          >
-            <span>{item}</span>
-            <button
-              onClick={() => handleItemClick(item)}
+        {Array.isArray(currentData)
+          ? currentData.map((item, index) => (
+            <div
+              key={index}
               style={{
-                padding: "5px 10px",
-                backgroundColor: "#007BFF",
-                color: "#fff",
-                border: "none",
-                borderRadius: "3px",
-                cursor: "pointer",
+                padding: "10px",
+                backgroundColor: "#f0f0f0",
+                border: "1px solid #ddd",
+                borderRadius: "5px",
               }}
             >
-              Choose
-            </button>
-          </div>
-        ))}
+              {item}
+            </div>
+          ))
+          : Object.keys(currentData).map((item, index) => (
+            <div
+              key={index}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                padding: "10px",
+                backgroundColor: "#f0f0f0",
+                border: "1px solid #ddd",
+                borderRadius: "5px",
+              }}
+            >
+              <span>{item}</span>
+              <button
+                onClick={() => handleItemClick(item)}
+                style={{
+                  padding: "5px 10px",
+                  backgroundColor: "#007BFF",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: "3px",
+                  cursor: "pointer",
+                }}
+              >
+                Choose
+              </button>
+            </div>
+          ))}
       </div>
 
       {/* Render Tip Statement */}
@@ -380,7 +387,13 @@ const NestedQue = () => {
           }}
         >
           <strong>Tip:</strong>
-          <p>{TIP_STATEMENT}</p>
+          <ul style={{ paddingLeft: "20px" }}>
+            {TIP_STATEMENT.map((line, index) => (
+              <li key={index} style={{ marginBottom: "5px" }}>
+                {line}
+              </li>
+            ))}
+          </ul>
         </div>
       )}
     </div>

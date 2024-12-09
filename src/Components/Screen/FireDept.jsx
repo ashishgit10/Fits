@@ -12,7 +12,6 @@ function FireDept() {
     <div>
       <Header2 />
       <Corousel />
-      <StepsProcess />
       <div className='m-auto max-w-[90%] flex justify-around py-10'>
         <InspectionCard />
       </div>
