@@ -1,12 +1,11 @@
 import React from 'react'
-
 import Header2 from '../Header2'
 import StepsProcess from '../Utils/StepsProcess'
-import Cardfd from '../Utils/Cardfd'
 import InspectionCard from '../Utils/InspectionCard'
-
 import Corousel from '../Corousel'
 import NestedQue from './NestedQue'
+
+
 
 function FireDept() {
   return (
@@ -14,10 +13,7 @@ function FireDept() {
       <Header2 />
       <Corousel />
       <StepsProcess />
-      <div>
-        <NestedQue />
-      </div>
-      <div className='mb-10'>
+      <div className='m-auto max-w-[90%] flex justify-around py-10'>
         <InspectionCard />
       </div>
     </div>

@@ -1,19 +1,75 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
 
-function Cardfd() {
+const Cardfd = () => {
     return (
-        <div><a class="flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-lg focus:outline-none focus:shadow-lg transition" href="#">
-            <img class="w-full h-auto rounded-t-xl" src="https://images.unsplash.com/photo-1680868543815-b8666dba60f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&q=80" alt="Card Image" />
-            <div class="p-4 md:p-5">
-                <h3 class="text-lg font-bold text-gray-800">
-                    Card title
-                </h3>
-                <p class="mt-1 text-gray-500">
-                    Some quick example text to build on the card title and make up the bulk of the card's content.
-                </p>
+        <StyledWrapper>
+            <div className="card">
+                <div className="first-content">
+                    <span>First</span>
+                </div>
+                <div className="second-content">
+                    <span>Second</span>
+                </div>
             </div>
-        </a></div>
-    )
+        </StyledWrapper>
+    );
 }
 
-export default Cardfd
+const StyledWrapper = styled.div`
+  .card {
+    width: 190px;
+    height: 254px;
+    background: rgb(103, 225, 255);
+    transition: all 0.4s;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+    font-size: 30px;
+    font-weight: 900;
+  }
+
+  .card:hover {
+    border-radius: 15px;
+    cursor: pointer;
+    transform: scale(1.2);
+    box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+    background: rgb(103, 151, 255);
+  }
+
+  .first-content {
+    height: 100%;
+    width: 100%;
+    transition: all 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    border-radius: 15px;
+  }
+
+  .card:hover .first-content {
+    height: 0px;
+    opacity: 0;
+  }
+
+  .second-content {
+    height: 0%;
+    width: 100%;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    transition: all 0.4s;
+    font-size: 0px;
+    transform: rotate(90deg) scale(-1);
+  }
+
+  .card:hover .second-content {
+    opacity: 1;
+    height: 100%;
+    font-size: 1.8rem;
+    transform: rotate(0deg);
+  }`;
+
+export default Cardfd;

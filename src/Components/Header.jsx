@@ -57,8 +57,8 @@ const Header = () => {
                             alt="MCD Logo"
                             className="mr-3 w-16"
                         />
-                        <button className="bg-white text-blue-700 px-3 py-1 text-sm md:text-md rounded">Screen Reader Access</button>
-                        <select className="bg-blue-600 text-white px-3 py-1 rounded">
+                        <button className="bg-white text-blue-700 hidden md:block px-3 py-1 text-sm md:text-md rounded">Screen Reader Access</button>
+                        <select className="bg-blue-600 text-white px-3 py-1 hidden md:block rounded">
                             <option>English</option>
                             <option>Hindi</option>
                         </select>
