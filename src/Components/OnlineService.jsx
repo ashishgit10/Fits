@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Fileupload from './Utils/Fileupload';
 
 const services = [
   { title: 'Property Tax (PTR)', icon: '🏠' },
@@ -32,6 +33,7 @@ const OnlineService = () => {
           </Link>
         ))}
       </div>
+      <Fileupload/>
     </section>
   );
 };
