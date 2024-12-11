@@ -3,14 +3,14 @@ import React from 'react';
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import logo from '../assets/logo.png'
- import flag from '../assets/flag.jpg'
+import flag from '../assets/flag.jpg'
 import emblem from '../assets/emblem.jpg'
-
+import { FaGlobe, FaBell, FaUser } from 'react-icons/fa';
 const user = {
     name: 'Tom Cook',
     email: 'tom@example.com',
     imageUrl:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        'https://thumbs.dreamstime.com/b/default-avatar-profile-flat-icon-social-media-user-vector-portrait-unknown-human-image-default-avatar-profile-flat-icon-184330869.jpg?w=768',
 }
 const navigation = [
     { name: 'Home Page', href: '/', current: true },
@@ -37,35 +37,54 @@ function classNames(...classes) {
 const Header = () => {
     return (
         <>
-            <header className=" text-white py-4 shadow-md">
-                <div className="container mx-auto flex justify-between items-center px-4">
-                    <div className="flex items-center">
-                        <img
-                            srcSet={logo}// Replace with the actual logo
-                            alt="MCD Logo"
-                            className="h-12"
-                        />
-                    </div>
-                    <div className="flex items-center space-x-4">
-                    <img
-                            srcSet={flag}// Replace with the actual logo
-                            alt="MCD Logo"
-                            className="mr-3 w-16"
-                        />
-                        <img
-                            srcSet={emblem}// Replace with the actual logo
-                            alt="MCD Logo"
-                            className="mr-3 w-16"
-                        />
-                        <button className="bg-white text-blue-700 hidden md:block px-3 py-1 text-sm md:text-md rounded">Screen Reader Access</button>
-                        <select className="bg-blue-600 text-white px-3 py-1 hidden md:block rounded">
-                            <option>English</option>
-                            <option>Hindi</option>
-                        </select>
+           <header className="bg-white border-b sticky top-0 z-50">
+      <div className="container mx-auto px-4">
+        <div className="flex justify-between items-center h-16">
+          <div className="flex items-center space-x-3">
+            <img 
+              src="https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg" 
+              alt="Government Logo" 
+              className="h-12 w-12 transition-transform hover:scale-105"
+            />
+            <div>
+              <h1 className="text-xl font-bold text-gray-900">Government Portal</h1>
+              <p className="text-sm text-gray-500">Delhi Administration</p>
+            </div>
+          </div>
 
-                    </div>
-                </div>
-            </header>
+          <div className="flex items-center space-x-6">
+            <button 
+              className="bg-transparent text-gray-600 hover:text-gray-900 text-sm font-medium">
+              Screen Reader Access
+            </button>
+
+            <div className="relative">
+              <button 
+                className="border border-gray-300 rounded-full p-2 hover:bg-gray-100 focus:outline-none">
+                <FaBell className="h-4 w-4 text-gray-600" />
+              </button>
+              <div className="absolute right-0 mt-2 bg-white border rounded shadow-lg w-48">
+                <div className="p-2 text-sm text-gray-700">No new notifications</div>
+              </div>
+            </div>
+
+            <div className="flex items-center space-x-2 border rounded-md px-3 py-1.5 bg-gray-50">
+              <FaGlobe className="h-4 w-4 text-gray-500" />
+              <select 
+                className="bg-transparent border-none text-sm focus:outline-none">
+                <option>English</option>
+                <option>हिंदी</option>
+              </select>
+            </div>
+
+            <button 
+              className="border border-gray-300 rounded-full p-2 hover:bg-gray-100 focus:outline-none">
+              <FaUser className="h-4 w-4 text-gray-600" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
 
             <div>
                 <div className="min-h-full">
@@ -198,3 +217,4 @@ const Header = () => {
 };
 
 export default Header;
+

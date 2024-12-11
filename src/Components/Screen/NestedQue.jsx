@@ -180,7 +180,7 @@ const data = {
     },
 
   },
-  "Business Buildings / Business Locations (Office Laboratory, Bank, Station, Telephone Office, T.V. Station, Architect, Doctor, Lawyer, Engineer, Post Office, Library, Outdoor Patient Hospital, Research Center, Laboratory, Tent House, E ⁇ i ⁇ , Computer Installation Center, Information Technical Park, Information Broadcasting Center, TV Station, Air Traffic Control)": {
+  "Business Buildings / Business Locations (Office Laboratory, Bank, Station, Telephone Office, T.V. Station, Architect, Doctor, Lawyer, Engineer, Post Office, Library, Outdoor Patient Hospital, Research Center, Laboratory, Tent House, Computer Installation Center, Information Technical Park, Information Broadcasting Center, TV Station, Air Traffic Control)": {
     "Dormitories & Apartments": {
       "Having height 15mtr & above (OR) Having ground plus four upper stories including mezzanine floor": {
         "Having height 15mtr & above but not exceeding 35mtr": [
@@ -240,7 +240,7 @@ const data = {
     },
 
   },
-  "Hazardous Buildings / Explosive Material Storage (Flammable and Explosive Substances, Elkali, Acid, Chemical Substances, Flammable, Gas and Chemicals, L ⁇ P ⁇ G ⁇ , Cracker Construction Site)": {
+  "Hazardous Buildings / Explosive Material Storage (Flammable and Explosive Substances, Elkali, Acid, Chemical Substances, Flammable, Gas and Chemicals,LPG, Cracker Construction Site)": {
     "Dormitories & Apartments": {
       "Having height 15mtr & above (OR) Having ground plus four upper stories including mezzanine floor": {
         "Having height 15mtr & above but not exceeding 35mtr": [
@@ -266,7 +266,7 @@ const TIP_STATEMENT = [
   "6. It is necessary to keep a fire check door of 4 hours rating between the basement to the main building entrance.",
   "7. Width of stairs 1 m in residential complex, 1.5 m in hotel, assembly site 2 m, It is necessary to keep 2 meters in 1.5 meters and hospitals in educational institutions.",
   "8. Provision of battery powered light if not electrified in emergency exit Necessary.",
-  "9. L. in buildingsP.Yes. Any other flammable material in the shaft with gas lines and Do not install electrical wires.",
+  "9. Any other flammable material in the shaft with gas lines and Do not install electrical wires.",
   "10. If there are 45 or more students in any class in educational institutions, two It is necessary to keep the provision of doors.",
   "11. It is necessary to have provision of hand rail in the stairs outside the building, whose height is 1 meter Do not fall short of.",
   "12. In any building or Godaun where the manufacture of explosives and hazardous materials takes place It is necessary to keep the distance of the exit gate at 22.5 meters.",
@@ -313,17 +313,17 @@ const NestedQue = () => {
 
   return (
     <div className="w-[60%] m-auto" style={{ padding: "20px", border: "1px solid #ccc" }}>
-      <h1>NOC Essential Equipment Information</h1>
-      <h4>Select the type of building to know the required equipment</h4>
+      <h1>NOC Equipment Requirements</h1>
+      <h4>Select building type to view required equipment</h4>
 
       {/* Display navigation path */}
       <div>
-        <strong>Path:</strong> {path.join(" > ") || "Home"}
+        <strong>Path:</strong> <div className="font-bold">{path.join(" > ") || "Home"}</div>
       </div>
 
       {/* Render Back button if not at top level */}
       {path.length > 0 && (
-        <button onClick={handleBack} style={{ margin: "10px 0", padding: "5px 10px" }}>
+        <button className="bg-blue-600 text-white rounded-md" onClick={handleBack} style={{ margin: "10px 0", padding: "5px 10px", }}>
           Back
         </button>
       )}

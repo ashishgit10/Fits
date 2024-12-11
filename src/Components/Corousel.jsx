@@ -4,7 +4,7 @@ import c2 from '../assets/c2.jpg'
 import c3 from '../assets/c3.jpg'
 function Corousel() {
   return (
-    <Carousel>
+    <Carousel className='w-full'>
       <Carousel.Item>
         <img
           className="d-block w-full h-[600px]"
